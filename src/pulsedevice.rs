@@ -113,9 +113,7 @@ fn open_pulse(
 
         println!("DEBUG PULSE DEVICE");
     println!("For spec: ");
-    println!("fomat  = {}", spec.format);
     println!("channels  = {}", spec.channels);
-    println!("rate  = {}", spec.rate);
     println!("For attr: ");
     println!("maxlength  = {}", attr.maxlength);
     println!("tlength  = {}", attr.tlength);
