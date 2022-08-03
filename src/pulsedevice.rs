@@ -136,6 +136,7 @@ fn open_pulse(
         Err(err) => Err(PulseError::new(&err).into()),
         Ok(pulsedev) => Ok(pulsedev),
     }
+    println!("Error = {}", err);
 }
 
 /// Start a playback thread listening for AudioMessages via a channel.
