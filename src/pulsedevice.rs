@@ -111,6 +111,19 @@ fn open_pulse(
         fragsize: bytes_per_sample as u32,
     };
 
+        println!("DEBUG PULSE DEVICE");
+    println!("For spec: ");
+    println!("fomat  = {}", spec.format);
+    println!("channels  = {}", spec.channels);
+    println!("rate  = {}", spec.rate);
+    println!("For attr: ");
+    println!("maxlength  = {}", attr.maxlength);
+    println!("tlength  = {}", attr.tlength);
+    println!("prebuf  = {}", attr.prebuf);
+    println!("minreq  = {}", attr.minreq);
+    println!("fragsize  = {}", attr.fragsize);
+
+    
     let pulsedev_res = Simple::new(
         None,           // Use the default server
         "CamillaDSP",   // Our application’s name
