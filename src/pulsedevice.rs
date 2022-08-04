@@ -113,9 +113,9 @@ fn open_pulse(
 
     println!("DEBUG PULSE DEVICE");
     println!("For spec: ");
-    println!("format  = {}", spec.format);
+    println!("format  = {:?}", spec.format);
     println!("channels  = {}", spec.channels);
-    println!("rate  = {}", spec.rate);
+    println!("rate  = {:?}", spec.rate);
     println!("For attr: ");
     println!("maxlength  = {}", attr.maxlength);
     println!("tlength  = {}", attr.tlength);
@@ -134,7 +134,7 @@ fn open_pulse(
         None,           // Use default channel map
         Some(&attr),    // Use default buffering attributes
     );
-    println!("result = {}", pulsedev_res);
+    println!("result = {:?}", pulsedev_res);
     match pulsedev_res {
         Err(err) => Err(PulseError::new(&err).into()),
         Ok(pulsedev) => Ok(pulsedev),
