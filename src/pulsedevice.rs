@@ -132,11 +132,12 @@ fn open_pulse(
         None,           // Use default channel map
         Some(&attr),    // Use default buffering attributes
     );
+    println!("break point 1");
     match pulsedev_res {
         Err(err) => Err(PulseError::new(&err).into()),
         Ok(pulsedev) => Ok(pulsedev),
     }
-    println!("Error = {}", err);
+    
 }
 
 /// Start a playback thread listening for AudioMessages via a channel.
@@ -165,10 +166,12 @@ impl PlaybackDevice for PulsePlaybackDevice {
                     false,
                 ) {
                     Ok(pulsedevice) => {
+                        println!("break point 2");
                         match status_channel.send(StatusMessage::PlaybackReady) {
                             Ok(()) => {}
                             Err(_err) => {}
                         }
+                        println!("break point 3");
                         let mut conversion_result;
                         let mut chunk_stats;
                         let bytes_per_frame = channels * store_bytes_per_sample;
